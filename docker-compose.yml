@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  aws-assume-role:
+    build: .
+    image: maikelmertens/aws-assume-role:latest
