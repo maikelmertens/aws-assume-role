@@ -20,9 +20,9 @@ AWS_ENV_VARS=$(aws sts assume-role \
 echo "export AWS_DEFAULT_REGION=${AWS_REGION:-eu-west-1}"
 echo "export AWS_REGION=${AWS_REGION:-eu-west-1}"
 
-echo "export AWS_ACCESS_KEY_ID='${AWS_ENV_VARS[0]}'"
-echo "export AWS_SECRET_ACCESS_KEY='${AWS_ENV_VARS[1]}'"
+echo "export AWS_ACCESS_KEY_ID='$(echo ${AWS_ENV_VARS} | cut -d ' ' -f1)'"
+echo "export AWS_SECRET_ACCESS_KEY='$(echo ${AWS_ENV_VARS} | cut -d ' ' -f2)'"
 
-echo "export AWS_SESSION_TOKEN='${AWS_ENV_VARS[2]}'"
-echo "export AWS_SECURITY_TOKEN='${AWS_ENV_VARS[2]}'"
-echo "export AWS_DELEGATION_TOKEN='${AWS_ENV_VARS[2]}'"
+echo "export AWS_SESSION_TOKEN='$(echo ${AWS_ENV_VARS} | cut -d ' ' -f3)'"
+echo "export AWS_SECURITY_TOKEN='$(echo ${AWS_ENV_VARS} | cut -d ' ' -f3)'"
+echo "export AWS_DELEGATION_TOKEN='$(echo ${AWS_ENV_VARS} | cut -d ' ' -f3)'"
